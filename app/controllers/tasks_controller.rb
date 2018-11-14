@@ -1,4 +1,4 @@
-class tasksController < ApplicationController
+class TasksController < ApplicationController
     before_action :set_task, only: [:edit, :update, :show, :destroy]
     before_action :require_user, except: [:index, :show]
     before_action :require_same_user, only: [:edit, :update, :destroy]

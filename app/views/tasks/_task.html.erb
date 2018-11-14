@@ -1,16 +1,20 @@
     <% obj.each do |task|%>
+    </br>
         <div class="row">
             <div class="col-xs-8 col-xs-offset-2">
                 <div class="well well-lg">
+            
                     <div class="task-title">
                         <%= link_to task.title, task_path(task)%>
                     </div>
+                  
                     <div class="task-body">
                         <%= truncate(task.description, length: 99) %>
+                    
                      <!-------------->
                         <div class="task-meta-details">
                             <small>
-                                  Created by:<%= task.user.username if task.user%>.
+                                  Created by: <%= task.user.username if task.user%>.
                                    <%= time_ago_in_words(task.created_at)%> ago,
                                    last updated: <%= time_ago_in_words(task.updated_at)%> ago
                            </small>
