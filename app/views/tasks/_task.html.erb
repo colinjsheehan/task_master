@@ -9,17 +9,22 @@
                     </div>
                   
                     <div class="task-body">
-                        <%= truncate(task.description, length: 99) %>
+                        <%= truncate(task.description, length: 20) %>
                     
                      <!-------------->
                         <div class="task-meta-details">
                             <small>
-                                  Created by: <%= task.user.username if task.user%>.
-                                   <%= time_ago_in_words(task.created_at)%> ago,
-                                   last updated: <%= time_ago_in_words(task.updated_at)%> ago
+                               
+                                    <b>Due date:</b> <%= task.due_date.strftime("%d-%m-%Y") if task.due_date.present? %>  |
+                                        <i>time remaining...  <%= distance_of_time_in_words(Time.now, task.due_date) if task.due_date.present?%></i>
+                                </p>
+                                 <i> Created by <%= task.user.username if task.user%> </i> |
+                                 <i> <%= time_ago_in_words(task.created_at)%> ago </i> |
+                                  <i> last updated <%= time_ago_in_words(task.updated_at)%> ago
+                                 </i>
                            </small>
-                        </div>
-                    </div>
+                      </div>
+                    </div> 
                   <!---------------------->
                  <% if logged_in? && (current_user == task.user || current_user.admin?) %>
                       <div class="task-actions">

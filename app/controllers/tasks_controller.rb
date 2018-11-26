@@ -2,8 +2,14 @@ class TasksController < ApplicationController
     before_action :set_task, only: [:edit, :update, :show, :destroy]
     before_action :require_user, except: [:index, :show]
     before_action :require_same_user, only: [:edit, :update, :destroy]
+    
+    
     def index
-        @tasks = Task.paginate(page: params[:page], per_page: 3)
+        if params[:search]
+            @tasks = Task.where("title like ?", "%#{params[:search]}%").paginate(page: params[:page], per_page: 3)
+        else 
+            @tasks = Task.paginate(page: params[:page], per_page: 3)
+        end
     end
 
     def new
@@ -49,8 +55,9 @@ class TasksController < ApplicationController
         end
 
         def task_params
-            params.require(:task).permit(:title, :description)
+            params.require(:task).permit(:title, :description, :due_date)
         end
+        
 
         def require_same_user
             # add ... and !current_user.admin?

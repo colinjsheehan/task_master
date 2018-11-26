@@ -4,4 +4,5 @@ class Task < ActiveRecord::Base
 # <! ------------------------>
     validates :user_id, presence: true
 # <! ------------------------>
+    validates :due_date, presence: true
 end

@@ -23,7 +23,9 @@ $navbar-default-bg: #190D01;
 .left {
     text-align:left;
 }
-
+a {
+    color: #3F250B;
+}
 .jumbotron {
     background-image: asset-url('jumbo_image.png');
     background-size: cover;
@@ -59,6 +61,7 @@ $navbar-default-bg: #190D01;
 }
 
 .task-title {
+ 
   font-weight: bold;
   font-size: 1.5em;
 }

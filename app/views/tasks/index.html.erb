@@ -1,7 +1,11 @@
-<h1 align="center">Listing all tasks</h1>
+<div>
+    <h1 align="center">Task List:</h1>
+</div>
+
 <div align="center">
   <%= will_paginate %>
 </div>
+
 <%= render 'task', obj: @tasks %>
 <div align="center">
   <%= will_paginate %>
