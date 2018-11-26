@@ -16,7 +16,7 @@
                             <small>
                                 
                                
-                                    <!--<b>Due date:</b> <%=# (task.due_date).strftime("%d-%m-%Y") if task.due_date.present? %>  |-->
+                                    <b>Due date:</b> <%= task.due_date if task.due_date.present? %>  |
                                         <i>time remaining....  <%= distance_of_time_in_words(Time.now, task.due_date) if task.due_date.present?%></i>
                                 </p>
                                  <i> Created by <%= task.user.username if task.user%> </i> |
