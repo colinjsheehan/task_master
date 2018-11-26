@@ -26,7 +26,7 @@
         <div class="task-meta-details">
             <small>
                 <p>
-                    <b>Due date:</b> <%= @task.due_date.strftime("%d-%m-%Y") if @task.due_date.present? %> |
+                    <b>Due date:</b> <%=# @task.due_date.strftime("%d-%m-%Y") if @task.due_date.present? %> |
                     <i>Time remaining... </i>   <%= distance_of_time_in_words(Time.now, @task.due_date) if @task.due_date.present?%>
                 </p>
                     Created <%= time_ago_in_words(@task.created_at)%> ago | last updated: <%= time_ago_in_words(@task.updated_at)%> ago
