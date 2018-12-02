@@ -25,7 +25,7 @@
         <div class="task-meta-details">
             <small>
                 <p>
-                    <b>Due date:</b> <%= @task.due_date if @task.due_date.present? %> |
+                   <i>deadline on</i>  <b><%= @task.due_date.to_s[0, 10] if @task.due_date.present? %></b> <i>at</i>  <b><%= @task.due_date.to_s[10, 6] if @task.due_date.present? %></b>  |
                     <i>Time remaining... </i>   <%= distance_of_time_in_words(Time.now, @task.due_date) if @task.due_date.present?%>
                 </p>
                     Created <%= time_ago_in_words(@task.created_at)%> ago | last updated: <%= time_ago_in_words(@task.updated_at)%> ago

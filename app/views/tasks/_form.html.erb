@@ -1,6 +1,13 @@
 <%= render 'shared/errors', obj: @task %>
 <%= javascript_include_tag "datetimepicker_initializer.js" %>
 
+
+<!--
+     The form below is taken from from bootstrap at 
+     https://getbootstrap.com/docs/4.0/components/forms/
+     
+--->
+
 <div class='row'>
     <div class='col-xs-12'>
         <%= form_for(@task, :html => {class: "form-horizontal", role: "form"}) do |f| %>
