@@ -6,6 +6,9 @@
             <%= link_to @task.user.username, user_path(@task.user) %> 
             </li>
             <small>
+                
+        <!--https://apidock.com/rails/ActionView/Helpers/TextHelper/pluralize-->
+        
              ( <%= pluralize(@task.user.tasks.count, "task") if @task.user.tasks %> )
             </small>
           

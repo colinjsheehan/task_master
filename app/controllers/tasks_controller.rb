@@ -3,6 +3,7 @@ class TasksController < ApplicationController
     before_action :require_user, except: [:index, :show]
     before_action :require_same_user, only: [:edit, :update, :destroy]
     
+    # https://github.com/mislav/will_paginate
     
     def index
         if params[:search]
